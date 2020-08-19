@@ -1,0 +1,801 @@
+@import '../../css/constants.scss'; 
+@import '../../css/responsive.scss'; 
+
+.Panel {
+    @include responsive(desktop, laptop) {
+        width: 80px;
+        border-right: 1px solid $split_color;
+        background-color: none;
+        padding: 40px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 580px;
+        .tab__container {
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+            .tab__item {
+                margin-bottom: 20px;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .item__text {
+                    color: $grey_color;
+                    font-family: 'Roboto-Regular';
+                    margin-top: 5px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+                .iconify {
+                    width: 30px;
+                    height: 30px;
+                    color: $grey_color;
+                    &:hover {
+                        color: $hover_color;
+                    }
+                }
+            }
+        }
+        .chat {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            background-color: $red_color;
+            transition: 0.2s;
+            cursor: pointer;
+            margin-left: 20px;
+            .iconify { 
+                width: 24px; 
+                height: 24px;
+                color: white;
+                padding: 8px;
+            }
+            &:hover {
+                opacity: 0.7;
+                transition: 0.2s;
+            }
+        }
+        z-index: 10;
+
+        .nav__traders {
+            overflow: auto;
+            width: 340px;
+            border-right: 1px solid $border_color;
+            background-color: $back_color;
+            padding: 30px 0px;
+            position: absolute;
+            height: calc(100vh - 141px);
+            animation: mymove 0.5s ease-out forwards;
+            margin-top: -40px;
+            z-index: 8;
+            min-height: 580px;
+            display: flex;
+            flex-direction: column;
+            .ns__header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 20px;
+                .title {
+                    color: white;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                .close {
+                    color: $grey_color;
+                    cursor: pointer;
+                }
+                margin-bottom: 15px;
+            }
+            .trader-item {
+                padding: 10px;
+                border-bottom: 1px solid $hover_color;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                cursor: pointer;
+                &.first {
+                    border-top: 1px solid $hover_color;
+                }
+                .info-detail {
+                    position: fixed;
+                    width: 380px;
+                    padding-top: 35px;
+                    background-color: rgba(55, 56, 59, 0.5);
+                    margin-left: 330px;
+                    margin-top: -10px;
+                    border: 1px solid $grey_color;
+                    cursor: default;
+                    .id-content {
+                        padding: 0 20px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .id-detail {
+                            .id-name {
+                                font-family: 'Roboto-Bold';
+                                color: white;
+                                font-size: 28px;                    
+                            }
+                            .id-country {
+                                display: flex;
+                                flex-direction: row;
+                                margin-top: 10px;
+                                margin-bottom: 25px;
+                                img {
+                                    width: 20px;
+                                }
+                                .country-name {
+                                    margin-left: 10px;
+                                    color: $grey_color;
+                                }
+                            }
+                            .reg-text {
+                                color: $grey_color;
+                                font-size: 14px;
+                            }
+                            .reg-date {
+                                color: white;
+                                font-size: 18px;
+                                margin: 10px 0 30px 0;
+                            }
+                        }
+                        .id-image {
+                            img {
+                                width: 80px;
+                            }
+                        }
+                        .week-content {
+                            display: flex;
+                            flex-direction: row;
+                            .text {
+                                color: $grey_color;
+                                font-size: 14px;
+                            }
+                            .question {
+                                color: $grey_color;
+                                font-size: 12px;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                    .week-block {
+                        margin: 5px 0 30px 0;
+                        display: flex;
+                        flex-direction: row;
+                        .wb-left {
+                            width: calc(50% - 20px);
+                            display: flex;
+                            flex-direction: row;
+                            margin-left: 20px;
+                            .award {
+                                color: white;
+                                margin-top: 2px;
+                                font-size: 25px;
+                            }
+                            .award-count {
+                                margin-left: 5px;
+                                color: white;
+                                font-size: 25px;
+                            }
+                        }
+                        .wb-right {
+                            color: $green_color;
+                            font-size: 25px;
+                        }
+                    }
+                    .start-button {
+                        background-color: rgba(72, 73, 76, 0.5);
+                        color: $green_color;
+                        font-family: 'Roboto-Bold';
+                        font-size: 22px;
+                        text-align: center;
+                        padding: 15px 0;
+                        width: 100%;
+                    }
+                }
+                .ti-detail {
+                    display: flex;
+                    flex-direction: row;
+                    .image1 {
+                        width: 34px;
+                        height: 34px;
+                        border-radius: 100%;
+                        background-color: yellow;
+                    }
+                    .image2 {
+                        margin-left: 10px;
+                        margin-top: 3px;
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 100%;
+                        background-color: $green_color;
+                    }
+                    .name-text {
+                        font-family: 'Roboto-Bold';
+                        color: white;
+                        margin-left: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+                .ti-price {
+                    color: $green_color;
+                    font-family: 'Roboto-Bold';
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    
+                }
+            }
+        }
+        .nav__setting {
+            overflow: auto;
+            width: 320px;
+            border-right: 1px solid $border_color;
+            background-color: $back_color;
+            padding: 30px 20px;
+            position: absolute;
+            height: calc(100vh - 141px);
+            animation: mymove 0.5s ease-out forwards;
+            margin-top: -40px;
+            z-index: 8;
+            min-height: 580px;
+            display: flex;
+            flex-direction: column;
+            .ns__header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .title {
+                    color: white;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                .close {
+                    color: $grey_color;
+                    cursor: pointer;
+                }
+                margin-bottom: 15px;
+            }
+            .history-item {
+                width: calc(100% - 40px);
+                background-color: $dark_grey_color;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+                .hi-left {
+                    display: flex;
+                    flex-direction: row;
+                    .img-content {
+                        .image1 {
+                            width: 26px;
+                            height: 26px;
+                            background-color: rgb(227, 134, 48);
+                            border-radius: 100%;
+                        }
+                        .image2 {
+                            position: absolute;
+                            width: 26px;
+                            height: 26px;
+                            background-color: rgb(209, 34, 48);
+                            border-radius: 100%;
+                            margin-left: 10px;
+                            margin-top: -15px;
+                        }
+                    }
+                    .hil-content {
+                        margin-left: 15px;
+                        display: flex;
+                        flex-direction: column;
+                        .hc-content {
+                            color: white;
+                            font-family: 'Roboto-Bold';
+                            font-size: 18px;
+                        }
+                        .hc-detail {
+                            display: flex;
+                            flex-direction: row;
+                            .status {
+                                color: $green_color;
+                                font-size: 20px;
+                                .red {
+                                    color: $red_color
+                                }
+                            }
+                            .time {
+                                color: $hover_color;
+                                font-size: 12px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                            }
+                        }
+                    }
+                }
+                .hi-right {
+                    display: flex;
+                    flex-direction: column;
+                    .price {
+                        color: white;
+                        font-family: 'Roboto-Bold';
+                        text-align: right;
+                        &.green {
+                            color: $green_color;
+                        }
+                    }
+                    .tprice {
+                        margin-top: 5px;
+                        color: $hover_color;
+                        font-size: 12px;
+                        text-align: right;
+                    }
+                }
+            }
+            .tournament-item {
+                border-radius: 10px;
+                margin-bottom: 15px;
+                width: 100%;
+                .back {
+                    position: absolute;
+                    width: calc(100% - 40px);
+                    border-radius: 10px;
+                    z-index: -1;
+                    opacity: 0.4;
+                }
+                .ti-text {
+                    color: white;
+                    font-family: 'Roboto-Bold';
+                    font-size: 26px;
+                    padding: 10px 0 0 10px;
+                }
+                .ti-time {
+                    color: white;
+                    font-family: 'Roboto-Bold';
+                    font-size: 14px;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    padding: 5px;
+                    border-radius: 6px;
+                    width: 170px;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+                .ti-content {
+                    background-color: $dark_grey_color;
+                    padding: 15px 20px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    margin-top: 50px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .tic-detail {
+                        display: flex;
+                        flex-direction: column;
+                        .tic-text {
+                            color: $light_grey_color;
+                            font-size: 14px;
+                        }
+                        .price {
+                            color: #FBDD3D;
+                            font-family: 'Roboto-Bold';
+                            font-size: 24px;
+                        }
+                    }
+                    .button {
+                        background-color: #FBDD3D;
+                        padding: 10px 15px;
+                        border-radius: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+            }
+            .graphic_header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .gh-sep {
+                    color: rgba(255, 255, 255, 0.6);
+                }
+                .gh-text {
+                    color: rgba(255, 255, 255, 0.6);
+                    text-align: center;
+                    width: 49%;
+                    cursor: pointer;
+                    &.active {
+                        color: rgb(227, 134, 48);
+                        border-bottom: 1px solid rgb(227, 134, 48);
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+            .graphic-status {
+                color: white;
+                font-size: 14px;
+                text-align: center;
+                padding: 8px;
+            }
+            .graphic-item {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                .detail {
+                    display: flex;
+                    flex-direction: row;
+                    .text {
+                        color: white;
+                        margin-left: 10px;
+                    }
+                }
+                .trash {
+                    color: white;
+                    font-size: 18px;
+                }
+            }
+        }
+        @keyframes mymove
+        { 
+            from { left: -100px;}
+            to { left: 76px;}
+        }
+    }
+    @include responsive(mobile) {
+        width: 50px;
+        border-right: 1px solid $split_color;
+        background-color: none;
+        padding: 40px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .tab__container {
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+            .tab__item {
+                margin-bottom: 20px;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .item__text {
+                    color: $grey_color;
+                    font-family: 'Roboto-Regular';
+                    margin-top: 5px;
+                    font-size: 8px;
+                    text-align: center;
+                }
+                .iconify {
+                    width: 30px;
+                    height: 30px;
+                    color: $grey_color;
+                    &:hover {
+                        color: $hover_color;
+                    }
+                }
+            }
+        }
+        .chat {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: $red_color;
+            transition: 0.2s;
+            cursor: pointer;
+            margin-left: 10px;
+            .iconify { 
+                width: 20px; 
+                height: 20px;
+                color: white;
+                padding: 5px;
+            }
+        }
+        .nav__traders {
+            overflow: auto;
+            width: calc(100% );
+            margin-left: -80px;
+            border-right: 1px solid $border_color;
+            background-color: $back_color;
+            padding: 30px 0px;
+            position: absolute;
+            height: calc(100vh - 141px);
+            animation: mymove 0.5s ease-out forwards;
+            margin-top: -40px;
+            z-index: 8;
+            display: flex;
+            flex-direction: column;
+            .ns__header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 20px;
+                .title {
+                    color: white;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                .close {
+                    color: $grey_color;
+                    cursor: pointer;
+                }
+                margin-bottom: 15px;
+            }
+            .trader-item {
+                padding: 10px;
+                border-bottom: 1px solid $hover_color;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                cursor: pointer;
+                &.first {
+                    border-top: 1px solid $hover_color;
+                }
+                .info-detail {
+                    display: none;
+                }
+                .ti-detail {
+                    display: flex;
+                    flex-direction: row;
+                    .image1 {
+                        width: 34px;
+                        height: 34px;
+                        border-radius: 100%;
+                        background-color: yellow;
+                    }
+                    .image2 {
+                        margin-left: 10px;
+                        margin-top: 3px;
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 100%;
+                        background-color: $green_color;
+                    }
+                    .name-text {
+                        font-family: 'Roboto-Bold';
+                        color: white;
+                        margin-left: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+                .ti-price {
+                    color: $green_color;
+                    font-family: 'Roboto-Bold';
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    
+                }
+            }
+        }
+        z-index: 12;
+        .nav__setting {
+            overflow: auto;
+            width: calc(100% - 40px);
+            border-right: 1px solid $border_color;
+            background-color: $back_color;
+            padding: 30px 20px;
+            position: absolute;
+            height: calc(100vh - 61px);
+            animation: mymove 0.5s ease-out forwards;
+            margin-top: -40px;
+            z-index: 8;
+            display: flex;
+            flex-direction: column;
+            margin-left: -80px;
+            .ns__header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .title {
+                    color: white;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                .close {
+                    color: $grey_color;
+                    cursor: pointer;
+                }
+                margin-bottom: 15px;
+            }
+            .history-item {
+                width: calc(100% - 40px);
+                background-color: $dark_grey_color;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+                .hi-left {
+                    display: flex;
+                    flex-direction: row;
+                    .img-content {
+                        .image1 {
+                            width: 26px;
+                            height: 26px;
+                            background-color: rgb(227, 134, 48);
+                            border-radius: 100%;
+                        }
+                        .image2 {
+                            position: absolute;
+                            width: 26px;
+                            height: 26px;
+                            background-color: rgb(209, 34, 48);
+                            border-radius: 100%;
+                            margin-left: 10px;
+                            margin-top: -15px;
+                        }
+                    }
+                    .hil-content {
+                        margin-left: 15px;
+                        display: flex;
+                        flex-direction: column;
+                        .hc-content {
+                            color: white;
+                            font-family: 'Roboto-Bold';
+                            font-size: 18px;
+                        }
+                        .hc-detail {
+                            display: flex;
+                            flex-direction: row;
+                            .status {
+                                color: $green_color;
+                                font-size: 20px;
+                                .red {
+                                    color: $red_color
+                                }
+                            }
+                            .time {
+                                color: $hover_color;
+                                font-size: 12px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                            }
+                        }
+                    }
+                }
+                .hi-right {
+                    display: flex;
+                    flex-direction: column;
+                    .price {
+                        color: white;
+                        font-family: 'Roboto-Bold';
+                        text-align: right;
+                        &.green {
+                            color: $green_color;
+                        }
+                    }
+                    .tprice {
+                        margin-top: 5px;
+                        color: $hover_color;
+                        font-size: 12px;
+                        text-align: right;
+                    }
+                }
+            }
+            .tournament-item {
+                border-radius: 10px;
+                margin-bottom: 15px;
+                width: 100%;
+                .back {
+                    position: absolute;
+                    width: calc(100% - 40px);
+                    border-radius: 10px;
+                    z-index: -1;
+                    opacity: 0.4;
+                }
+                .ti-text {
+                    color: white;
+                    font-family: 'Roboto-Bold';
+                    font-size: 26px;
+                    padding: 10px 0 0 10px;
+                }
+                .ti-time {
+                    color: white;
+                    font-family: 'Roboto-Bold';
+                    font-size: 14px;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    padding: 5px;
+                    border-radius: 6px;
+                    width: 170px;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+                .ti-content {
+                    background-color: $dark_grey_color;
+                    padding: 15px 20px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    margin-top: 50px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .tic-detail {
+                        display: flex;
+                        flex-direction: column;
+                        .tic-text {
+                            color: $light_grey_color;
+                            font-size: 14px;
+                        }
+                        .price {
+                            color: #FBDD3D;
+                            font-family: 'Roboto-Bold';
+                            font-size: 24px;
+                        }
+                    }
+                    .button {
+                        background-color: #FBDD3D;
+                        padding: 10px 15px;
+                        border-radius: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+            }
+            .graphic_header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .gh-sep {
+                    color: rgba(255, 255, 255, 0.6);
+                }
+                .gh-text {
+                    color: rgba(255, 255, 255, 0.6);
+                    text-align: center;
+                    width: 49%;
+                    cursor: pointer;
+                    &.active {
+                        color: rgb(227, 134, 48);
+                        border-bottom: 1px solid rgb(227, 134, 48);
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+            .graphic-status {
+                color: white;
+                font-size: 14px;
+                text-align: center;
+                padding: 8px;
+            }
+            .graphic-item {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                .detail {
+                    display: flex;
+                    flex-direction: row;
+                    .text {
+                        color: white;
+                        margin-left: 10px;
+                    }
+                }
+                .trash {
+                    color: white;
+                    font-size: 18px;
+                }
+            }
+        }
+        @keyframes mymove
+        { 
+            from { left: -100px;}
+            to { left: 76px;}
+        }
+    }
+}

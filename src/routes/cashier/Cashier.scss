@@ -1,0 +1,272 @@
+@import '../../css/constants.scss'; 
+@import '../../css/responsive.scss'; 
+
+.Cashier {
+    @include responsive(desktop, laptop) {
+        background-color: white;
+        width: 100%;
+        height: calc(100vh - 81px);
+        min-height: 580px;
+        .cashier-header {
+            border-bottom: 1px solid $split_color;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            .ch-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 700px;
+                .chc-item {
+                    color: $split_color;
+                    padding-bottom: 20px;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    border-bottom: 2px solid white;
+                    &.active {
+                        color: black;
+                        font-weight: bold;
+                        border-bottom: 2px solid black;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+        .tab {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            .withdraw-block {
+                width: 700px;
+                margin: auto;
+                padding: 20px;
+                .wb-text {
+                    color: $grey_color;
+                    text-align: center;
+                }
+                .deposit-button {
+                    margin-top: 20px;    
+                    padding: 20px;
+                    border-radius: 5px;
+                    background-color: #FBDD3D;
+                    color: black;
+                    font-weight: bold;
+                    margin: 20px 30%;
+                    text-align: center;
+                }
+            }
+            .transaction-block {
+                width: 700px;
+                margin: auto;
+                padding: 20px;
+                .transfer {
+                    text-align: center;
+                    color: $split_color;
+                    font-size: 60px;
+                }
+                .tb-title {
+                    color: black;
+                    text-align: center;
+                    font-weight: bold;
+                    margin-bottom: 50px;
+                    font-size: 26px;
+                    margin-top: 20px;
+                }
+                .tb-text {
+                    color: $grey_color;
+                    text-align: center;
+                }
+                .deposit-button {
+                    margin-top: 20px;    
+                    padding: 20px;
+                    border-radius: 5px;
+                    background-color: #FBDD3D;
+                    color: black;
+                    font-weight: bold;
+                    margin: 20px 30%;
+                    text-align: center;
+                }
+            }
+            .depoist-block {
+                width: 700px;
+                display: flex;
+                flex-direction: column;
+                margin-top: 60px;
+                .title {
+                    color: black;
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 18px;
+                    margin-bottom: 30px;
+                }
+                .payment-content {
+                    width: 100%;
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    .pc-item {
+                        width: 23%;
+                        border: 1px solid $split_color;
+                        padding: 15px 0 40px 0;
+                        border-radius: 5px;
+                        align-items: center;
+                        margin-bottom: 20px;
+                        .card-image {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            height: 50px;
+                            img {
+                                width: 100px;
+                            }
+                        }
+                        .pc-text {
+                            margin-top: 10px;
+                            text-align: center;
+                        }
+                    }
+                    .pc-placeholder {
+                        width: 23%;
+                    }
+                }
+            }        
+        }
+    }
+    @include responsive(mobile) {
+        background-color: white;
+        width: 100%;
+        height: calc(100vh - 81px);
+        .cashier-header {
+            border-bottom: 1px solid $split_color;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            .ch-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                .chc-item {
+                    color: $split_color;
+                    padding: 0 5px 20px;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    border-bottom: 2px solid white;
+                    text-align: center;
+                    &.active {
+                        color: black;
+                        font-weight: bold;
+                        border-bottom: 2px solid black;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+        .tab {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 0 10px;
+            .withdraw-block {
+                width: 100;
+                margin: auto;
+                padding: 20px;
+                .wb-text {
+                    color: $grey_color;
+                    text-align: center;
+                }
+                .deposit-button {
+                    margin-top: 20px;    
+                    padding: 20px;
+                    border-radius: 5px;
+                    background-color: #FBDD3D;
+                    color: black;
+                    font-weight: bold;
+                    margin: 20px 30%;
+                    text-align: center;
+                }
+            }
+            .transaction-block {
+                width: 100;
+                margin: auto;
+                padding: 20px;
+                .transfer {
+                    text-align: center;
+                    color: $split_color;
+                    font-size: 60px;
+                }
+                .tb-title {
+                    color: black;
+                    text-align: center;
+                    font-weight: bold;
+                    margin-bottom: 50px;
+                    font-size: 26px;
+                    margin-top: 20px;
+                }
+                .tb-text {
+                    color: $grey_color;
+                    text-align: center;
+                }
+                .deposit-button {
+                    margin-top: 20px;    
+                    padding: 20px;
+                    border-radius: 5px;
+                    background-color: #FBDD3D;
+                    color: black;
+                    font-weight: bold;
+                    margin: 20px 30%;
+                    text-align: center;
+                }
+            }
+            .depoist-block {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-top: 60px;
+                .title {
+                    color: black;
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 18px;
+                    margin-bottom: 30px;
+                }
+                .payment-content {
+                    width: 100%;
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    .pc-item {
+                        width: 23%;
+                        border: 1px solid $split_color;
+                        padding: 15px 0 40px 0;
+                        border-radius: 5px;
+                        align-items: center;
+                        margin-bottom: 20px;
+                        .card-image {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            height: 50px;
+                            img {
+                                width: calc(100% - 10px);
+                            }
+                        }
+                        .pc-text {
+                            margin-top: 10px;
+                            text-align: center;
+                        }
+                    }
+                    .pc-placeholder {
+                        width: 23%;
+                    }
+                }
+            }        
+        }
+    }
+}

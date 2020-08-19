@@ -1,0 +1,177 @@
+@import '../../css/responsive.scss'; 
+
+.Auth {
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .auth__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+        width: 350px;
+        .form__title {
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            @include responsive(mobile) {
+                margin-top: 20px;
+            }
+        }
+        .social__buttons {
+            display: flex;
+            flex-direction: row;
+            .facebook_but {
+                width: calc(50% - 5px);
+                padding:10px 0;
+                font-size: 30px;
+                color: white;
+                cursor: pointer;
+                user-select: none;
+                border-radius: 6px;
+                background-color: rgb(64, 77, 230);
+                text-align: center;
+                font-weight: bold;
+                transition: 0.3s;
+                &:hover {
+                    opacity: 0.8;
+                    transition: 0.3s;
+                }
+            }
+            .google__but {
+                width: calc(50% - 5px);
+                padding:10px 0;
+                margin-left: 10px;
+                font-size: 30px;
+                color: white;
+                cursor: pointer;
+                user-select: none;
+                border-radius: 6px;
+                background-color: rgb(241, 241, 241);
+                text-align: center;
+                font-weight: bold;
+                transition: 0.3s;
+                &:hover {
+                    opacity: 0.7;
+                    transition: 0.3s;
+                }
+            }
+        }
+        .forgot__text {
+            color: rgb(210, 210, 210);
+            font-size: 14px;
+            padding: 15px 0;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .forgot__dis {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+            color: black;
+        }
+        .back__text {
+            color: rgb(170, 170, 170);
+            font-size: 14px;
+            padding: 15px 0;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+        }
+        .password__dis {
+            color: rgb(210, 210, 210);
+            font-size: 12px;
+            margin: 10px 0px 20px;
+        }
+        .sign__but {
+            font-size: 14px;
+            color: black;
+            text-align: center;
+            user-select: none;
+            cursor: pointer;
+            background-color: rgb(252, 223, 62);
+            transition: 0.3s;
+            padding: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            &:hover {
+                opacity: 0.7;
+                transition: 0.3s;
+            }
+        }
+        .page__ctrl {
+            display: flex;
+            flex-direction: row;
+            margin-top: 30px;
+            justify-content: center;
+            .description {
+                font-size: 14px;
+                color: rgb(170, 170, 170);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-right: 10px;
+            }
+            .ctrl__but {
+                cursor: pointer;
+                user-select: none;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 3px 20px;
+                border-radius: 5px;
+                color: white;
+                transition: 0.3s;
+                background-color: rgb(71, 72, 75);
+                &:hover {
+                    opacity: 0.7;
+                    transition: 0.3s;
+                }
+            }
+        }
+        .currency__buttons {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+            .currency_but {
+                width: calc(50% - 5px);
+                padding: 8px 0;
+                font-size: 16px;
+                color: rgb(150, 150, 150);
+                cursor: pointer;
+                user-select: none;
+                border-radius: 6px;
+                text-align: center;
+                transition: 0.3s;
+                font-weight: bold;
+                border: 1.5px solid rgb(210, 210, 210);
+                &:hover {
+                    color: rgb(30, 30, 30);
+                    transition: 0.3s;
+                }
+                &.first {
+                    margin-right: 10px;
+                }
+                &.active {
+                    border: 1.5px solid rgb(30, 30, 30);
+                    color: rgb(30, 30, 30);
+                }
+            }
+        }
+        .privacy__cotainer {
+            display: flex;
+            flex-direction: row;
+            cursor: pointer;
+            user-select: none;
+            .policy__text {
+                margin-top: 10px;
+                color: rgb(170, 170, 170);
+                font-size: 14px;
+            }
+        }
+    }
+}

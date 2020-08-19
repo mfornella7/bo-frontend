@@ -1,0 +1,433 @@
+@import '../../css/constants.scss'; 
+@import '../../css/responsive.scss'; 
+
+.Options {
+    @include responsive(desktop, laptop) {
+        width: 170px;
+        flex-direction: column;
+        background: none;
+        padding: 0px 20px;
+        min-height: 670px;
+        .option__container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0;
+            background-color: $border_color;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            .option__block {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 15px;
+                .type {
+                    font-size: 12px;
+                    color: $grey_color;
+                    font-family: 'Roboto-Regular';
+                }
+                .value {
+                    margin-top: 3px;
+                    font-size: 15px;
+                    color: $hover_color;
+                    font-size: 20px;
+                    font-family: 'Roboto-Medium';
+                }
+                border-right: 1px solid black;
+            }
+            .option__ctrl {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                i {
+                    padding: 8px;
+                    color: $grey_color;
+                    &:hover {
+                        color: $hover_color;
+                        cursor: pointer;
+                    }
+                    &.border_bottom {
+                        border-bottom: 1px solid black;
+                    }
+                }
+            }
+        }
+        .benefit__text {
+            color: $light_grey_color;
+            font-size: 13px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .benefit__value {
+            text-align: center;
+            color: $green_color;
+            font-size: 34px;
+            font-family: 'Roboto-Bold';
+        }
+        .benefit__percent {
+            text-align: center;
+            color: $green_color;
+            font-size: 22px;
+            font-family: 'Roboto-Bold';
+            margin: 5px 0 25px
+        }
+        .majority__opinion {
+            font-size: 13px;
+            color: white;
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: 'Roboto-Regular';
+        }
+        .red__bar {
+            background-color: $red_color;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            .green__bar {
+                background-color: $green_color;
+                height: 6px;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+        }
+        .progress {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 12px;
+            .green__text {
+                margin-left: 15px;
+                color: $green_color;
+            }
+            .red__text {
+                color: $red_color;
+                margin-right: 15px;
+            }
+        }
+        .call__button {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            transition: 0.3s;
+            cursor: pointer;
+            .triangle {
+                position: relative;
+                background-color: $green_color;
+                text-align: left;
+            }
+            .triangle:before,
+            .triangle:after {
+                content: '';
+                position: absolute;
+                background-color: inherit;
+            }
+            .triangle,
+            .triangle:before,
+            .triangle:after {
+                width:  70px;
+                height: 70px;
+                border-top-right-radius: 60%;
+            }
+            
+            .triangle {
+                transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+            }
+            .triangle:before {
+                transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+            }
+            .triangle:after {
+                transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+            }
+            &:hover {
+                opacity: 0.7;
+                transition: 0.3s;
+            }
+            .content {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+                img {
+                    width: 28px;
+                }
+                .up__text {
+                    font-family: 'Roboto-Bold';
+                    color: white;
+                    text-align: center;
+                    font-size: 24px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .put__button {
+            margin-top: 70px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            .content {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: -15px;
+                img {
+                    width: 28px;
+                }
+                .down__text {
+                    font-family: 'Roboto-Bold';
+                    color: white;
+                    text-align: center;
+                    font-size: 24px;
+                    margin-bottom: 5px;
+                }
+            }
+            .triangle {
+                position: relative;
+                background-color: $red_color;
+                text-align: left;
+            }
+            .triangle:before,
+            .triangle:after {
+                content: '';
+                position: absolute;
+                background-color: inherit;
+            }
+            .triangle,
+            .triangle:before,
+            .triangle:after {
+                width:  70px;
+                height: 70px;
+                border-bottom-left-radius: 60%;
+            }
+            
+            .triangle {
+                transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+            }
+            .triangle:before {
+                transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,50%);
+            }
+            .triangle:after {
+                transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(-50%);
+            }
+            &:hover {
+                opacity: 0.7;
+                transition: 0.3s;
+            }
+        }
+    }
+    @include responsive(mobile) {
+        width: 100px;
+        flex-direction: column;
+        background: none;
+        padding: 0px 10px;
+        z-index: 11;
+        right: 0;
+        .option__container {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0;
+            background-color: $border_color;
+            border-radius: 5px;
+            .option__block {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 15px;
+                .type {
+                    font-size: 10px;
+                    color: $grey_color;
+                    font-family: 'Roboto-Regular';
+                }
+                .value {
+                    margin-top: 3px;
+                    font-size: 15px;
+                    color: $hover_color;
+                    font-size: 14px;
+                    font-family: 'Roboto-Medium';
+                }
+                border-right: 1px solid black;
+            }
+            .option__ctrl {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                i {
+                    padding: 8px;
+                    color: $grey_color;
+                    &.border_bottom {
+                        border-bottom: 1px solid black;
+                    }
+                }
+            }
+        }
+        .benefit__text {
+            color: $light_grey_color;
+            font-size: 13px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .benefit__value {
+            text-align: center;
+            color: $green_color;
+            font-size: 34px;
+            font-family: 'Roboto-Bold';
+        }
+        .benefit__percent {
+            text-align: center;
+            color: $green_color;
+            font-size: 22px;
+            font-family: 'Roboto-Bold';
+            margin: 5px 0 10px
+        }
+        .majority__opinion {
+            font-size: 13px;
+            color: white;
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: 'Roboto-Regular';
+        }
+        .red__bar {
+            background-color: $red_color;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            .green__bar {
+                background-color: $green_color;
+                height: 6px;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+        }
+        .progress {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 12px;
+            .green__text {
+                margin-left: 15px;
+                color: $green_color;
+            }
+            .red__text {
+                color: $red_color;
+                margin-right: 15px;
+            }
+        }
+        .call__button {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            transition: 0.3s;
+            cursor: pointer;
+            .triangle {
+                position: relative;
+                background-color: $green_color;
+                text-align: left;
+            }
+            .triangle:before,
+            .triangle:after {
+                content: '';
+                position: absolute;
+                background-color: inherit;
+            }
+            .triangle,
+            .triangle:before,
+            .triangle:after {
+                width:  50px;
+                height: 50px;
+                border-top-right-radius: 60%;
+            }
+            
+            .triangle {
+                transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+            }
+            .triangle:before {
+                transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+            }
+            .triangle:after {
+                transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+            }
+            .content {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 15px;
+                img {
+                    width: 20px;
+                }
+                .up__text {
+                    font-family: 'Roboto-Bold';
+                    color: white;
+                    text-align: center;
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .put__button {
+            margin-top: 70px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            .content {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: -5px;
+                img {
+                    width: 20px;
+                }
+                .down__text {
+                    font-family: 'Roboto-Bold';
+                    color: white;
+                    text-align: center;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                }
+            }
+            .triangle {
+                position: relative;
+                background-color: $red_color;
+                text-align: left;
+            }
+            .triangle:before,
+            .triangle:after {
+                content: '';
+                position: absolute;
+                background-color: inherit;
+            }
+            .triangle,
+            .triangle:before,
+            .triangle:after {
+                width:  50px;
+                height: 50px;
+                border-bottom-left-radius: 60%;
+            }
+            
+            .triangle {
+                transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+            }
+            .triangle:before {
+                transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,50%);
+            }
+            .triangle:after {
+                transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(-50%);
+            }
+        }
+    }
+}
