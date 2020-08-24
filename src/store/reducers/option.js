@@ -1,14 +1,18 @@
 import { createAction, handleActions } from "redux-actions";
+import { Success }                from '../../api/status';
 
 const initialState = {
     chartType: 2,
     timePeriod: 3,
     chartSelection: 0,
+    balance: 999,
 };
 
 export const updateChartType = createAction("UPDATE_CHART_TYPE");
 export const updateTimePeriod = createAction("UPDATE_TIME_PERIOD");
 export const updateChartSelection = createAction("UPDATE_CHART_SELECTION");
+export const placeBet = createAction("PLACE_BET");
+
 
 export default handleActions(
   {
@@ -20,9 +24,9 @@ export default handleActions(
       ...state,
       timePeriod: payload.timePeriod
     }),
-    "UPDATE_CHART_SELECTION": (state, { payload } ) => ({
+    [Success("PLACE_BET")]: (state, { payload } ) => ({
       ...state,
-      chartSelection: payload.chartSelection
+      balance: payload.balance
     }),
   },
   initialState

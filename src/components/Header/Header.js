@@ -55,7 +55,7 @@ class Header extends Component {
                                 <div className="account__block">
                                     <div className="account__type">Demo</div>
                                     <div className="account__balance">
-                                        $999.00 
+                                        ${this.props.balance} 
                                         <i className="fa fa-caret-down icon" aria-hidden="true"></i>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@ class Header extends Component {
                             <div className="account__block">
                                 <div className="account__type dark">Demo</div>
                                 <div className="account__balance dark">
-                                    $999.00 
+                                    ${this.props.balance} 
                                     <i className="fa fa-caret-down icon dark" aria-hidden="true"></i>
                                 </div>
                             </div>
@@ -135,6 +135,7 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => ({
     currentUser: state.auth.currentUser,
+    balance: state.option.balance
 });
 
 const mapDispatchToProps = {
