@@ -10,7 +10,6 @@ function parseData(parse) {
 		d.low = +d.low;
 		d.close = +d.close;
 		d.volume = +d.volume;
-
 		return d;
 	};
 }
