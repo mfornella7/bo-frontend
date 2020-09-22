@@ -5,18 +5,37 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 import './Header.scss';
 
+import Img_User from '../../assets/img/user.png';
+
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            isShow: false,
         };
+        this.wrapperRef = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
     }
     goCashier() {
         this.props.history.push("/cashier");
     }
     goTrading() {
         this.props.history.push("/trading");
+    }
+    handleClickOutside(event) {
+        if (this.wrapperRef && this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
+            if (this.state.isShow)
+                this.setState({
+                    isShow: false,
+                })
+        }
     }
     render() {
         const { location, currentUser } = this.props;
@@ -68,7 +87,9 @@ class Header extends Component {
                             </div>
                         </div>
                         <div className="make__center">
-                            <div className="user__avatar">
+                            <div className="user__avatar" onClick={() => {
+                                this.setState({ isShow: true })
+                            }}>
                                 <div className="avatar">
                                     M
                                 </div>
@@ -76,6 +97,53 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
+                    {this.state.isShow?
+                        <div className="panel" ref={this.wrapperRef}>
+                            <div className="user">
+                                <img className="user-img" src={Img_User} alt=""/>
+                                <div className="user__detail">
+                                    <div className="name">João José</div>
+                                    <div className="email">joaojose@gmail.com</div>
+                                </div>
+                                <div className="close" onClick={() => {
+                                    this.setState({isShow: false})
+                                }}>
+                                    <i className="fa fa-times" aria-hidden="true"/>
+                                </div>
+                            </div>
+                            <div className="balance-row">
+                                <div className="br-text">Conta real</div>
+                                <div className="bal-text">USDT 145.10</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="far fa-user-circle"></i>
+                                <div className="item-text">Resumo da Conta</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="far fa-user"></i>
+                                <div className="item-text">Dados pessoais</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="fas fa-check-circle"></i>
+                                <div className="item-text">Verificação</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="fas fa-shield-alt"></i>
+                                <div className="item-text">Segurança</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="fas fa-dollar-sign"></i>
+                                <div className="item-text">Retirada de fundos</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="fas fa-search-dollar"></i>
+                                <div className="item-text">Histórico de Transações</div>
+                            </div>
+                            <div className="item-row">
+                                <i class="fas fa-history"></i>
+                                <div className="item-text">Histórico de Trading</div>
+                            </div>
+                        </div>:(null)}
                 </div>
             )
         else if (currentUser && location.pathname === '/cashier')

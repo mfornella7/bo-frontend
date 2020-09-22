@@ -1,0 +1,11 @@
+@import '../../css/constants.scss'; 
+@import '../../css/responsive.scss'; 
+
+.Settings {
+    @include responsive(desktop, laptop) {
+        
+    }
+    @include responsive(mobile) {
+        
+    }
+}

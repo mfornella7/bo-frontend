@@ -243,6 +243,74 @@
                 }
             }
         }
+        .panel {
+            position: absolute;
+            right: 0;
+            background-color: $white_color;
+            width: 400px;
+            height: 100%;
+            z-index: 10;
+            .user {
+                display: flex;
+                flex-direction: row;
+                padding: 10px;
+                margin-left: 30px;
+                .user-img {
+                    width: 52px;
+                    height: 52px;
+                }
+                .user__detail {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 20px;
+                    .name {
+                        font-family: 'Roboto-Bold';
+                        font-size: 22px;
+                    }
+                    .email {
+                        color: $grey_color;
+                    }
+                }
+                .close {
+                    margin-left: auto;
+                    i {
+                        color: $grey_color;
+                        font-size: 20px;
+                    }
+                }
+            }
+            .balance-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 40px;
+                .br-text {
+                    color: $border_color;
+                    font-size: 18px;
+                    margin: auto 0;
+                }
+                .bal-text {
+                    color: $green_color;
+                    font-size: 24px;
+                    font-family: 'Roboto-Bold';
+                }
+            }
+            .item-row {
+                padding: 10px 40px;
+                display: flex;
+                flex-direction: row;
+                i{
+                    margin: auto 0;
+                    color: $border_color;
+                }
+                .item-text {
+                    margin-left: 15px;
+                    color: $border_color;
+                    font-family: 'Roboto-Bold';
+                    font-size: 18px;
+                }
+            }
+        }
     }
     @include responsive(mobile) {
         height: 60px;

@@ -25,7 +25,6 @@ class Options extends Component {
             body: {
                 amount: 100,
             }
-            
         })
     }
     render() {
