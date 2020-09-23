@@ -1,0 +1,62 @@
+@import '../../css/constants.scss'; 
+@import '../../css/responsive.scss'; 
+
+.Setting {
+    @include responsive(desktop, laptop) {
+        height: calc(100vh - 81px);
+        display: flex;
+        flex-direction: row;
+        background-color: $white_color;
+        .panel {
+            width: 400px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .item-row {
+                padding: 10px 20px;
+                display: flex;
+                flex-direction: row;
+                i{
+                    margin: auto 0;
+                    color: $border_color;
+                }
+                .item-text {
+                    margin-left: 15px;
+                    color: $border_color;
+                    font-family: 'Roboto-Bold';
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .tab1 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .title-row {
+                display: flex;
+                flex-direction: row;
+                margin-top: 10px;
+                .text {
+                    font-size: 30px;
+                    color: $black_color;
+                    font-family: 'Roboto-Bold';
+                    line-height: 30px;
+                }
+                .dis {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-left: 10px;
+                    .row {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive(mobile) {
+        
+    }
+}

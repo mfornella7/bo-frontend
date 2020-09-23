@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import Auth     from './auth';
 import Trading  from './trading';
 import Cashier  from './cashier';
+import Setting  from './setting';
+
 const Routes = () => {
   const isAuthenticated = useSelector((state) => !!state.auth.token);
   return (
@@ -21,6 +23,7 @@ const Routes = () => {
             (<Switch>
               <Route path="/trading" component={Trading}/>
               <Route path="/cashier" component={Cashier}/>
+              <Route path="/setting" component={Setting}/>
             </Switch>)
           }
           <Route render={() => <Redirect to="/"/>}/>

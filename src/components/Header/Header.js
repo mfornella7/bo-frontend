@@ -16,6 +16,7 @@ class Header extends Component {
         this.wrapperRef = React.createRef();
         this.handleClickOutside = this.handleClickOutside.bind(this);
     }
+
     componentDidMount() {
         document.addEventListener('mousedown', this.handleClickOutside);
     }
@@ -23,12 +24,15 @@ class Header extends Component {
     componentWillUnmount() {
         document.removeEventListener('mousedown', this.handleClickOutside);
     }
+
     goCashier() {
         this.props.history.push("/cashier");
     }
+
     goTrading() {
         this.props.history.push("/trading");
     }
+
     handleClickOutside(event) {
         if (this.wrapperRef && this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
             if (this.state.isShow)
@@ -37,6 +41,11 @@ class Header extends Component {
                 })
         }
     }
+
+    goSettingPage() {
+        this.props.history.push("/setting");
+    }
+
     render() {
         const { location, currentUser } = this.props;
         if (currentUser && location.pathname === '/trading')
@@ -71,7 +80,7 @@ class Header extends Component {
                     <div className="header__right">
                         <div className="make__center">
                             <div className="demo__account">
-                                <div className="account__block">
+                                <div className="account__block" onClick={() => this.goSettingPage()}>
                                     <div className="account__type">Demo</div>
                                     <div className="account__balance">
                                         ${this.props.balance} 
@@ -146,7 +155,7 @@ class Header extends Component {
                         </div>:(null)}
                 </div>
             )
-        else if (currentUser && location.pathname === '/cashier')
+        else if (currentUser /*&& location.pathname === '/cashier'*/)
         return (
             <div className="Header dark">
                 <div className="header__left">
