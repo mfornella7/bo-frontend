@@ -3,7 +3,6 @@
 
 .Setting {
     @include responsive(desktop, laptop) {
-        height: calc(100vh - 81px);
         display: flex;
         flex-direction: row;
         background-color: $white_color;
@@ -13,9 +12,11 @@
             display: flex;
             flex-direction: column;
             .item-row {
-                padding: 10px 20px;
+                margin: 10px 20px;
                 display: flex;
                 flex-direction: row;
+                margin-right: auto;
+                padding-bottom: 10px;
                 i{
                     margin: auto 0;
                     color: $border_color;
@@ -27,6 +28,9 @@
                     font-size: 18px;
                     cursor: pointer;
                 }
+                &.selected {
+                    border-bottom: 4px solid orange;
+                }
             }
         }
         .tab1 {
@@ -34,6 +38,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            min-height: calc(100vh - 81px);
             .title-row {
                 display: flex;
                 flex-direction: row;
@@ -53,6 +58,277 @@
                         font-size: 10px;
                     }
                 }
+            }
+            .ctrl-row {
+                display: flex;
+                flex-direction: row;
+                margin: 50px 0;
+                .green-button {
+                    padding: 10px;
+                    width: 70px;
+                    border: 1px solid $green_color;
+                    border-radius: 10px;
+                    font-size: 12px;
+                    color: $green_color;
+                    text-align: center;
+                }
+                .orange-button {
+                    padding: 10px;
+                    width: 70px;
+                    border: 1px solid orange;
+                    border-radius: 10px;
+                    font-size: 12px;
+                    color: orange;
+                    margin-left: 10px;
+                    text-align: center;
+                }
+                img {
+                    width: 37px;
+                    height: 37px;
+                    margin-left: 40px;
+                }
+                .dis {
+                    height: 37px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-left: 10px;
+                    .usdt {
+                        font-size: 14px;
+                    }
+                    .text {
+                        font-size: 10px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            .description-row {
+                display: flex;
+                flex-direction: row;
+                .item {
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 50px;
+                    .usdt {
+                        font-family: 'Roboto-Bold';
+                        font-size: 22px;
+                        &.green {
+                            color: $green_color;
+                        }
+                    }
+                    .text {
+                        font-size: 12px;
+                    }
+                }
+                .mid-text {
+                    margin: auto 0;
+                    font-family: 'Roboto-Bold';
+                    font-size: 22px;
+                }
+            }
+            .seperator {
+                background: $border_color;
+                height: 1px;
+                width: 700px;
+                margin: 30px 0;
+                &.second {
+                    margin-bottom: 0;
+                }
+            }
+            .small-text {
+                font-size: 10px;
+                margin-bottom: 20px;
+            }
+            .medium-size {
+                font-family: 'Roboto-Bold';
+                margin: 30px 0;
+                font-size: 18px;
+            }
+            .row-list {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                .list {
+                    display: flex;
+                    flex-direction: row;
+                    .direction {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                        border: 1px solid $hover_color;
+                        text-align: center;
+                        &.left {
+                            margin-right: 10px;
+                        }
+                        &.right {
+                            margin-left: 10px;
+                        }
+                        i {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 40px;
+                            color: $hover_color;
+                        }
+                        margin: auto 0;                    
+                    }
+                    .crypto {
+                        border-radius: 10px;
+                        box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0 10px;
+                        .detail {
+                            display: flex;
+                            flex-direction: row;
+                            .crypto-img {
+                                width: 38px;
+                                height: 32px;
+                            }
+                            .type {
+                                display: flex;
+                                flex-direction: column;
+                                margin-left: 10px;
+                                .name {
+                                    font-family: 'Roboto-Bold';
+                                }
+                                .small {
+                                    font-size: 10px;
+                                    color: $grey_color;
+                                }
+                            }
+                        }
+                        .chart-row {
+                            display: flex;
+                            flex-direction: row;
+                            .status {
+                                display: flex;
+                                flex-direction: column;
+                                margin-top: 20px;
+                                .plus {
+                                    color: $green_color;
+                                    font-family: 'Roboto-Bold';
+                                }
+                                .dis {
+                                    color: $grey_color;
+                                    font-size: 10px;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .block {
+                display: flex;
+                flex-direction: row;
+                .number {
+                    display: flex;
+                    flex-direction: column;
+                    .circle {
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid $border_color;
+                        border-radius: 100%;
+                        text-align: center;
+                        font-family: 'Roboto-Bold';
+                        font-size: 16px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                    .line1 {
+                        height: 160px;
+                        width: 1px;
+                        background: $border_color;
+                        margin: 0 auto;
+                    }
+                    .line2 {
+                        height: 100px;
+                        width: 1px;
+                        background: $border_color;
+                        margin: 0 auto;
+                    }
+                }
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 20px;
+                    .c-title {
+                        margin-top: 10px;
+                        font-family: 'Roboto-Bold';
+                    }
+                    .c-description {
+                        color: $grey_color;
+                        margin-top: 20px;
+                        &.second {
+                            margin-bottom: 20px;
+                        }
+                    }
+                    img {
+                        margin-top: 20px;
+                        width: 400px;
+                        height: 70px;
+                    }
+                }
+            }
+            .qr-row {
+                display: flex;
+                flex-direction: row;
+                .qr-img {
+                    width: 140px;
+                    height: 140px;
+                    margin-right: 20px;
+                }
+                .code-input {
+                    display: flex;
+                    flex-direction: column;
+                    margin: auto 0;
+                    .text {
+                        font-size: 10px;
+                        color: $grey_color;
+                        margin-bottom: 5px;
+                    }
+                    .input-content {
+                        display: flex;
+                        flex-direction: row;
+                        input {
+                            font-size: 14px;
+                            padding: 10px;
+                            border-radius: 5px;
+                            width: 200px;
+                        }
+                        .copy{
+                            width: 40px;
+                            margin-left: -10px;
+                            border-radius: 10px;
+                            background-color: $hover_color;
+                            text-align: center;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            i {
+                                color: $white_color;
+                            }
+                        }
+                    }
+                }
+            }
+            .orange-text {
+                font-size: 12px;
+                color: orange;
+                margin-bottom: 40px;
+            }
+            .yellow-button {
+                background-color: #fbd427;
+                margin-bottom: 30px;
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 12px;
+                width: 120px;
+                text-align: center;
             }
         }
     }
