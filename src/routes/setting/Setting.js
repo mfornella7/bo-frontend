@@ -8,12 +8,13 @@ import Img_ETH_USDT from '../../assets/img/extra/eth_usdt.png';
 import Img_Chart from '../../assets/img/extra/chart.png';
 import Img_App from '../../assets/img/extra/app.png';
 import Img_QR from '../../assets/img/QR.png';
+import Img_PDF from '../../assets/img/extra/pdf.png';
 
 class Setting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tabId: 3,
+            tabId: 6,
             tabs:[
                 "Resumo da Conta",
                 "Dados pessoais",
@@ -31,7 +32,37 @@ class Setting extends Component {
                 "fa-dollar-sign",
                 "fa-search-dollar",
                 "fa-history",
-            ]
+            ],
+            rows: [
+                {
+                    time1: '09.09.2020, 21:12:24.897',
+                    time2: '09.09.2020, 21:13:25.897',
+                    asset: 'USD/JPY',
+                    investment: 'R$4.00',
+                    gross: '-R$0.06',
+                    rate: '-1.60%',
+                    equity: 'R$3.94'
+                },
+                {
+                    time1: '09.09.2020, 21:12:24.897',
+                    time2: '09.09.2020, 21:13:25.897',
+                    asset: 'USD/JPY',
+                    investment: 'R$4.00',
+                    gross: '-R$0.06',
+                    rate: '-1.60%',
+                    equity: 'R$3.94'
+                },
+                {
+                    time1: '09.09.2020, 21:12:24.897',
+                    time2: '09.09.2020, 21:13:25.897',
+                    asset: 'USD/JPY',
+                    investment: 'R$4.00',
+                    gross: '-R$0.06',
+                    rate: '-1.60%',
+                    equity: 'R$3.94'
+                },
+            ],
+            open: [false, true, false]
         }
     }
     renderTab1() {
@@ -215,12 +246,132 @@ class Setting extends Component {
             </div>
         );
     }
+
+    onRow(index) {
+        let t = [...this.state.open]
+        t[index] = !t[index];
+        this.setState({ open: t });
+    }
+
     renderTab6() {
         if (this.state.tabId !== 6) return (null);
         return (
             <div className="tab1">
                 <div className="title-row">
                     <div className="text">Histórico de Trading</div>
+                </div>
+                <div className="option-row">
+                    <div className="option">
+                        <div className="text">Tipo de operação</div>
+                        <div className="dropdown">
+                            <div className="d-text">Todos</div>
+                            <i className="fa fa-caret-down" aria-hidden='false'/>
+                        </div>
+                    </div>
+                    <div className="option">
+                        <div className="text">Moeda</div>
+                        <div className="dropdown">
+                            <div className="d-text">Todas as moedas</div>
+                            <i className="fa fa-caret-down" aria-hidden='false'/>
+                        </div>
+                    </div>
+                    <div className="option">
+                        <div className="dropdown cal">
+                            <i className="fa fa-calendar cal-icon" aria-hidden="true"></i>
+                            <div className="c-text">11/08/2020 - 11/09/2020</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="seperator third"/>
+                <div className="small-text">Dados para o período selecionado</div>
+                <div className="description-row">
+                    <div className="item">
+                        <div className="usdt">USDT 50.00</div>
+                        <div className="text">Investimento total</div>
+                    </div>
+                    <div className="item">
+                        <div className="usdt">USDT 50.00</div>
+                        <div className="text">Total do Patrimonio</div>
+                    </div>
+                    <div className="item">
+                        <div className="usdt">USDT 50.00</div>
+                        <div className="text">Lucro Bruto Total</div>
+                    </div>
+                    <div className="download-but">
+                        <img src={Img_PDF} alt=""/>
+                        <div className="text">PDF</div>
+                    </div>
+                    <div className="download-but">
+                        <img src={Img_PDF} alt=""/>
+                        <div className="text">CSV</div>
+                    </div>
+                </div>
+                <div className="table-block">
+                    <div className="t-header">
+                        <div className="cell t1">Purchase(closing) time <br/>UTC(+02:00)</div>
+                        <div className="cell">Asset</div>
+                        <div className="cell">Investments</div>
+                        <div className="cell">{"Gross P&L"}</div>
+                        <div className="cell">{"Net P&L"}</div>
+                        <div className="cell">Equity</div>
+                    </div>
+                    {this.state.rows.map((row, index) => {
+                        return (
+                            <div className="table-row" key={index}>
+                                <div className="t-row" onClick={() => this.onRow(index)}>
+                                    <div className="cell t1">
+                                        <div className="small">{row.time1}</div>
+                                        <div className="small">{row.time2}</div>
+                                    </div>
+                                    <div className="cell">{row.asset}</div>
+                                    <div className="cell">{row.investment}</div>
+                                    <div className="cell">
+                                        <div className="red">{row.gross}</div>
+                                        <div className="rate red">{row.rate}</div>
+                                    </div>
+                                    <div className="cell">
+                                        <div className="">{row.gross}</div>
+                                        <div className="rate">{row.rate}</div>
+                                    </div>
+                                    <div className="cell t2">{row.equity}</div>
+                                    {this.state.open[index]?
+                                        <i className="fa fa-angle-up" aria-hidden='false'/>:
+                                        <i className="fa fa-angle-down" aria-hidden='false'/>}
+                                </div>
+                                {this.state.open[index]?
+                                    <div className="open-row">
+                                        <div className="detail-text">Detailed information: ID 9821988137</div>
+                                        <div className="o-row">
+                                            <div className="item">
+                                                <div className="title">Open price</div>
+                                                <div className="status">
+                                                    <i className="fa fa-caret-up" aria-hidden="false"/>
+                                                    106.213
+                                                </div>
+                                            </div>
+                                            <div className="item">
+                                                <div className="title">Close price</div>
+                                                <div className="status">106.213</div>
+                                            </div>
+                                            <div className="item">
+                                                <div className="title">Commission</div>
+                                                <div className="status">R$0.00</div>
+                                                <div className="rate">0.00%</div>
+                                            </div>
+                                            <div className="item">
+                                                <div className="title">Custodia fee</div>
+                                                <div className="status">R$0.00</div>
+                                                <div className="rate">0.00%</div>
+                                            </div>
+                                            <div className="item">
+                                                <div className="title">Leverage</div>
+                                                <div className="status">1:200</div>
+                                            </div>
+                                        </div>
+                                    </div>:(null)}
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         );
@@ -231,7 +382,6 @@ class Setting extends Component {
                 <div className="panel">
                     {this.state.tabs.map((tab, index) => {
                         let icon = "fas " + this.state.icons[index];
-                        console.log(icon)
                         return (
                             <div className={this.state.tabId === index?"item-row selected":"item-row"}
                                 onClick={() => {

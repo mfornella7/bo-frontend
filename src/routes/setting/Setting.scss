@@ -125,6 +125,21 @@
                     font-family: 'Roboto-Bold';
                     font-size: 22px;
                 }
+                .download-but {
+                    border-radius: 5px;
+                    border: 1px solid $hover_color;
+                    margin: auto 0;
+                    padding: 5px;
+                    margin-right: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    .text {
+                        color: $hover_color;
+                        font-size: 14px;
+                        padding-left: 10px;
+                        margin: auto 0;
+                    }
+                }
             }
             .seperator {
                 background: $border_color;
@@ -134,9 +149,12 @@
                 &.second {
                     margin-bottom: 0;
                 }
+                &.third {
+                    width: 850px;
+                }
             }
             .small-text {
-                font-size: 10px;
+                font-size: 12px;
                 margin-bottom: 20px;
             }
             .medium-size {
@@ -329,6 +347,145 @@
                 font-size: 12px;
                 width: 120px;
                 text-align: center;
+            }
+            .option-row {
+                display: flex;
+                flex-direction: row;
+                margin-top: 20px;
+                .option {
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 15px;
+                    .text {
+                        font-size: 12px;
+                        margin-bottom: 10px;
+                    }
+                    .dropdown {
+                        border: 1px solid $hover_color;
+                        display: flex;
+                        flex-direction: row;
+                        border-radius: 5px;
+                        width: 250px;
+                        justify-content: space-between;
+                        i {
+                            color: orange;
+                            padding: 10px;
+                        }
+                        .cal-icon {
+                            padding-right: 10px;
+                            border-right: 1px solid $hover_color;
+                        }
+                        &.cal {
+                            margin-top: auto;
+                        }
+                        .d-text {
+                            padding: 10px 15px;
+                            font-size: 12px;
+                        }
+                        .c-text {
+                            margin-right: auto;
+                            padding: 10px 15px;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            .table-block {
+                display: flex;
+                flex-direction: column;
+                border-top: 1px solid $hover_color;
+                margin-right: auto;
+                margin-top: 30px;
+                .t-header {
+                    display: flex;
+                    flex-direction: row;
+                    padding: 10px 0;
+                    .cell {
+                        color: $grey_color;
+                        font-size: 12px;
+                        width: 150px;
+                        margin: auto 0;
+                        &.t1 {
+                            width: 220px;
+                        }
+                    }
+                }
+                .table-row{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: $light_grey_color;
+                    margin-bottom: 10px;
+                    .t-row {
+                        display: flex;
+                        flex-direction: row;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        .cell {
+                            width: 150px;
+                            margin: auto 0;
+                            color: $black_color;
+                            font-family: 'Roboto-Bold';
+                            font-size: 16px;
+                            .red {
+                                color: $red_color;
+                            }
+                            .rate {
+                                font-size: 12px;
+                                padding-left: 21px;
+                            }
+                            &.t1 {
+                                width: 200px;
+                                color: $grey_color;
+                                font-size: 12px;
+                            }
+                            &.t2 {
+                                width: 100px;
+                            }
+                        }
+                        i {
+                            margin: auto;
+                            font-size: 18px;
+                            color: peru;
+                        }
+                    }
+                    .open-row {
+                        margin: 0 10px;
+                        padding: 10px;
+                        background-color: $white_color;
+                        margin-bottom: 10px;
+                        .detail-text {
+                            padding-bottom: 10px;
+                            font-size: 14px;
+                            border-bottom: 1px solid $hover_color;
+                            margin-bottom: 15px;
+                        }
+                        .o-row {
+                            display: flex;
+                            flex-direction: row;
+                            .item {
+                                display: flex;
+                                flex-direction: column;
+                                margin-right: 50px;
+                                .title {
+                                    font-size: 14px;
+                                    color: $hover_color;
+                                }
+                                .status {
+                                    font-size: 14px;
+                                    color: $black_color;
+                                }
+                                .rate {
+                                    font-size: 12px;
+                                    color: $hover_color;
+                                }
+                                i {
+                                    color: $green_color;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
