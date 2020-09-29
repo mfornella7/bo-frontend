@@ -14,7 +14,7 @@ class Setting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tabId: 6,
+            tabId: 0,
             tabs:[
                 "Resumo da Conta",
                 "Dados pessoais",
@@ -62,15 +62,27 @@ class Setting extends Component {
                     equity: 'R$3.94'
                 },
             ],
-            open: [false, true, false]
+            open: [false, true, false],
+            isShow: false,
         }
+        this.wrapperRef = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
     }
     renderTab1() {
         if (this.state.tabId !== 0) return (null);
         return (
             <div className="tab1">
                 <div className="title-row">
-                    <div className="text">Resumo | USDT 145.10</div>
+                    <div className="text">Resumo</div>
+                    <div className="text sep">|</div>
+                    <div className="text">USDT 145.10</div>
                     <div className="dis">
                         <div className="row">Valor estimado</div>
                         <div className="row">em cima</div>
@@ -86,17 +98,19 @@ class Setting extends Component {
                     </div>
                 </div>
                 <div className="description-row">
-                    <div className="item">
-                        <div className="usdt">USDT 50.00</div>
-                        <div className="text">Investimento total</div>
-                    </div>
-                    <div className="item">
-                        <div className="usdt">USDT 50.00</div>
-                        <div className="text">Balance total</div>
-                    </div>
-                    <div className="item">
-                        <div className="usdt green">0%</div>
-                        <div className="text">Lucro Bruto Total</div>
+                    <div className="items">
+                        <div className="item">
+                            <div className="usdt">USDT 50.00</div>
+                            <div className="text">Investimento total</div>
+                        </div>
+                        <div className="item">
+                            <div className="usdt">USDT 50.00</div>
+                            <div className="text">Balance total</div>
+                        </div>
+                        <div className="item">
+                            <div className="usdt green">0%</div>
+                            <div className="text">Lucro Bruto Total</div>
+                        </div>
                     </div>
                     <div className="mid-text">0 Posições</div>
                 </div>
@@ -108,7 +122,7 @@ class Setting extends Component {
                         <div className="direction left">
                             <i className="fa fa-angle-left" aria-hidden="true"></i>
                         </div>
-                        <div className="crypto">
+                        <div className="crypto first">
                             <div className="detail">
                                 <img className="crypto-img" src={Img_BTC_USDT} alt=""/>
                                 <div className="type">
@@ -140,7 +154,7 @@ class Setting extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="crypto">
+                        <div className="crypto third">
                             <div className="detail">
                                 <img className="crypto-img" src={Img_DASH_USDT} alt=""/>
                                 <div className="type">
@@ -156,7 +170,7 @@ class Setting extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="crypto">
+                        <div className="crypto forth">
                             <div className="detail">
                                 <img className="crypto-img" src={Img_ETH_USDT} alt=""/>
                                 <div className="type">
@@ -281,29 +295,39 @@ class Setting extends Component {
                             <div className="c-text">11/08/2020 - 11/09/2020</div>
                         </div>
                     </div>
+                    <div className="option-mobile">
+                        <div className="dropdown cal">
+                            <div className="c-text">11/08/2020 - 11/09/2020</div>
+                            <i className="fa fa-calendar cal-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
                 </div>
                 <div className="seperator third"/>
-                <div className="small-text">Dados para o período selecionado</div>
+                <div className="small-text nomargin">Dados para o período selecionado</div>
                 <div className="description-row">
-                    <div className="item">
-                        <div className="usdt">USDT 50.00</div>
-                        <div className="text">Investimento total</div>
+                    <div className="items noborder">
+                        <div className="item">
+                            <div className="usdt">USDT 50.00</div>
+                            <div className="text">Investimento total</div>
+                        </div>
+                        <div className="item">
+                            <div className="usdt">USDT 50.00</div>
+                            <div className="text">Total do Patrimonio</div>
+                        </div>
+                        <div className="item">
+                            <div className="usdt">USDT 50.00</div>
+                            <div className="text">Lucro Bruto Total</div>
+                        </div>
                     </div>
-                    <div className="item">
-                        <div className="usdt">USDT 50.00</div>
-                        <div className="text">Total do Patrimonio</div>
-                    </div>
-                    <div className="item">
-                        <div className="usdt">USDT 50.00</div>
-                        <div className="text">Lucro Bruto Total</div>
-                    </div>
-                    <div className="download-but">
-                        <img src={Img_PDF} alt=""/>
-                        <div className="text">PDF</div>
-                    </div>
-                    <div className="download-but">
-                        <img src={Img_PDF} alt=""/>
-                        <div className="text">CSV</div>
+                    <div className="buttons">
+                        <div className="download-but">
+                            <img src={Img_PDF} alt=""/>
+                            <div className="text">PDF</div>
+                        </div>
+                        <div className="download-but">
+                            <img src={Img_PDF} alt=""/>
+                            <div className="text">CSV</div>
+                        </div>
                     </div>
                 </div>
                 <div className="table-block">
@@ -376,9 +400,43 @@ class Setting extends Component {
             </div>
         );
     }
+    handleClickOutside(event) {
+        if (this.wrapperRef && this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
+            if (this.state.isShow)
+                this.setState({
+                    isShow: false,
+                })
+        }
+    }
+    renderPanel() {
+        return (
+            <div className="panel-mobile">
+                <div onClick={() => {
+                    this.setState({isShow: true})
+                }}>{this.state.tabs[this.state.tabId]}</div>
+                <i className="fa fa-caret-down" aria-hidden="true"></i>
+                {this.state.isShow?
+                    <div className="dropdown" ref={this.wrapperRef}>
+                        {this.state.tabs.map((tab, index) => {
+                            return (
+                                <div className="text" key={index} onClick={() => {
+                                    this.setState({
+                                        tabId: index,
+                                        isShow: false,
+                                    })
+                                }}>
+                                    {tab}
+                                </div>
+                            )
+                        })}
+                    </div>:(null)}
+            </div>
+        )
+    }
     render() {
         return (
             <div className="Setting">
+                {this.renderPanel()}
                 <div className="panel">
                     {this.state.tabs.map((tab, index) => {
                         let icon = "fas " + this.state.icons[index];

@@ -5,6 +5,7 @@ import Auth     from './auth';
 import Trading  from './trading';
 import Cashier  from './cashier';
 import Setting  from './setting';
+import Dashboard  from './dashboard';
 
 const Routes = () => {
   const isAuthenticated = useSelector((state) => !!state.auth.token);
@@ -24,6 +25,7 @@ const Routes = () => {
               <Route path="/trading" component={Trading}/>
               <Route path="/cashier" component={Cashier}/>
               <Route path="/setting" component={Setting}/>
+              <Route path="/dashboard" component={Dashboard}/>
             </Switch>)
           }
           <Route render={() => <Redirect to="/"/>}/>

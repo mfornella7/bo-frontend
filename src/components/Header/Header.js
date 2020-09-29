@@ -33,6 +33,10 @@ class Header extends Component {
         this.props.history.push("/trading");
     }
 
+    goDashboard() {
+        this.props.history.push("/dashboard");
+    }
+
     handleClickOutside(event) {
         if (this.wrapperRef && this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
             if (this.state.isShow)
@@ -46,8 +50,103 @@ class Header extends Component {
         this.props.history.push("/setting");
     }
 
+    renderPanel() {
+        if (this.state.isShow === false) return (null);
+        return (
+            <div className="panel" ref={this.wrapperRef}>
+                <div className="user">
+                    <img className="user-img" src={Img_User} alt=""/>
+                    <div className="user__detail">
+                        <div className="name">João José</div>
+                        <div className="email">joaojose@gmail.com</div>
+                    </div>
+                    <div className="close" onClick={() => {
+                        this.setState({isShow: false})
+                    }}>
+                        <i className="fa fa-times" aria-hidden="true"/>
+                    </div>
+                </div>
+                <div className="balance-row">
+                    <div className="br-text">Conta real</div>
+                    <div className="bal-text">USDT 145.10</div>
+                </div>
+                <div className="item-row">
+                    <i class="far fa-user-circle"></i>
+                    <div className="item-text">Resumo da Conta</div>
+                </div>
+                <div className="item-row">
+                    <i class="far fa-user"></i>
+                    <div className="item-text">Dados pessoais</div>
+                </div>
+                <div className="item-row">
+                    <i class="fas fa-check-circle"></i>
+                    <div className="item-text">Verificação</div>
+                </div>
+                <div className="item-row">
+                    <i class="fas fa-shield-alt"></i>
+                    <div className="item-text">Segurança</div>
+                </div>
+                <div className="item-row">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div className="item-text">Retirada de fundos</div>
+                </div>
+                <div className="item-row">
+                    <i class="fas fa-search-dollar"></i>
+                    <div className="item-text">Histórico de Transações</div>
+                </div>
+                <div className="item-row">
+                    <i class="fas fa-history"></i>
+                    <div className="item-text">Histórico de Trading</div>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         const { location, currentUser } = this.props;
+        if (currentUser && (location.pathname === '/dashboard' ||
+            location.pathname === '/statistics' ||
+            location.pathname === '/financial'
+        )) {
+            return (
+                <div className="Header no-border">
+                    <div className="header__left">
+                        <div className={location.pathname === '/dashboard'?"nav-menu selected":"nav-menu"}>Dashboard</div>
+                        <div className={location.pathname === '/statistics'?"nav-menu selected":"nav-menu"}>Statistics</div>
+                        <div className={location.pathname === '/financial'?"nav-menu selected":"nav-menu"}>Financial</div>
+                    </div>
+                    <div className="header__right">
+                        <div className="make__center">
+                            <div className="demo__account">
+                                <div className="account__block" onClick={() => this.goSettingPage()}>
+                                    <div className="account__type">Demo</div>
+                                    <div className="account__balance">
+                                        ${this.props.balance} 
+                                        <i className="fa fa-caret-down icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="make__center">
+                            <div className="deposit__button" onClick={()=>this.goCashier()}>
+                                Deposit          
+                            </div>
+                        </div>
+                        <div className="make__center">
+                            <div className="user__avatar" onClick={() => {
+                                this.setState({ isShow: true })
+                            }}>
+                                <div className="avatar">
+                                    M
+                                </div>
+                                <i className="fa fa-caret-down" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {this.renderPanel()}
+                </div>
+            )
+        }
         if (currentUser && location.pathname === '/trading')
             return (
                 <div className="Header">
@@ -55,7 +154,7 @@ class Header extends Component {
                         <div className="nav__icon">
                             <i className="fa fa-bars" aria-hidden="true"></i>
                         </div>
-                        <div className="title__text">Logo</div>
+                        <div className="title__text" onClick={() => this.goDashboard()}>Logo</div>
                         <div className="make__center">
                             <div className="add__button">
                                 <i className="fa fa-plus fa-1" aria-hidden="true"></i>
@@ -105,93 +204,50 @@ class Header extends Component {
                                 <i className="fa fa-caret-down" aria-hidden="true"></i>
                             </div>
                         </div>
-                    </div>
-                    {this.state.isShow?
-                        <div className="panel" ref={this.wrapperRef}>
-                            <div className="user">
-                                <img className="user-img" src={Img_User} alt=""/>
-                                <div className="user__detail">
-                                    <div className="name">João José</div>
-                                    <div className="email">joaojose@gmail.com</div>
-                                </div>
-                                <div className="close" onClick={() => {
-                                    this.setState({isShow: false})
-                                }}>
-                                    <i className="fa fa-times" aria-hidden="true"/>
-                                </div>
-                            </div>
-                            <div className="balance-row">
-                                <div className="br-text">Conta real</div>
-                                <div className="bal-text">USDT 145.10</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="far fa-user-circle"></i>
-                                <div className="item-text">Resumo da Conta</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="far fa-user"></i>
-                                <div className="item-text">Dados pessoais</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="fas fa-check-circle"></i>
-                                <div className="item-text">Verificação</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="fas fa-shield-alt"></i>
-                                <div className="item-text">Segurança</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="fas fa-dollar-sign"></i>
-                                <div className="item-text">Retirada de fundos</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="fas fa-search-dollar"></i>
-                                <div className="item-text">Histórico de Transações</div>
-                            </div>
-                            <div className="item-row">
-                                <i class="fas fa-history"></i>
-                                <div className="item-text">Histórico de Trading</div>
-                            </div>
-                        </div>:(null)}
+                    </div>                    
+                    {this.renderPanel()}
                 </div>
             )
         else if (currentUser /*&& location.pathname === '/cashier'*/)
-        return (
-            <div className="Header dark">
-                <div className="header__left">
-                    <div className="nav__icon">
-                        <i className="fa fa-bars dark" aria-hidden="true"></i>
+            return (
+                <div className="Header dark">
+                    <div className="header__left">
+                        <div className="nav__icon">
+                            <i className="fa fa-bars dark" aria-hidden="true"></i>
+                        </div>
+                        <div className="title__text dark" onClick={() => this.goDashboard()}>Logo</div>
                     </div>
-                    <div className="title__text dark">Logo</div>
-                </div>
-                <div className="header__right">
-                    <div className="make__center">
-                        <div className="demo__account">
-                            <div className="account__block">
-                                <div className="account__type dark">Demo</div>
-                                <div className="account__balance dark">
-                                    ${this.props.balance} 
-                                    <i className="fa fa-caret-down icon dark" aria-hidden="true"></i>
+                    <div className="header__right">
+                        <div className="make__center">
+                            <div className="demo__account">
+                                <div className="account__block" onClick={() => this.goSettingPage()}>
+                                    <div className="account__type dark">Demo</div>
+                                    <div className="account__balance dark">
+                                        ${this.props.balance} 
+                                        <i className="fa fa-caret-down icon dark" aria-hidden="true"></i>
+                                    </div>
                                 </div>
+                                
                             </div>
-                            
                         </div>
-                    </div>
-                    <div className="make__center">
-                        <div className="deposit__button" onClick={()=>this.goTrading()}>
-                            Trading          
-                        </div>
-                    </div>
-                    <div className="make__center">
-                        <div className="user__avatar">
-                            <div className="avatar">
-                                M
+                        <div className="make__center">
+                            <div className="deposit__button" onClick={()=>this.goTrading()}>
+                                Trading          
                             </div>
-                            <i className="fa fa-caret-down dark" aria-hidden="true"></i>
+                        </div>
+                        <div className="make__center">
+                            <div className="user__avatar" onClick={() => {
+                                this.setState({ isShow: true })
+                            }}>
+                                <div className="avatar">
+                                    M
+                                </div>
+                                <i className="fa fa-caret-down dark" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
+                    {this.renderPanel()}
                 </div>
-            </div>
         )
         return (
             <div className="Header white">
@@ -201,6 +257,7 @@ class Header extends Component {
                     </div>
                     <div className="title__text black">Binary Option</div>
                 </div>
+                {this.renderPanel()}
             </div>
         )
     }
