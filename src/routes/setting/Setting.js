@@ -25,7 +25,7 @@ class Setting extends Component {
                 "Histórico de Trading",
             ],
             icons:[
-                "fa-user-circle",
+                "fa-chart-bar",
                 "fa-user",
                 "fa-check-circle",
                 "fa-shield-alt",

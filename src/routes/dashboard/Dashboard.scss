@@ -5,15 +5,544 @@
     @include responsive(desktop, laptop) {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        height: calc(100vh - 80px);
         .back {
             height: 300px;
+            min-height: 300px;
             width: 100%;
             background: linear-gradient(180deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgba(22,59,163,1) 100%);
             margin-top: -80px;
             z-index: -1;
+            .balance-detail {
+                display: flex;
+                flex-direction: row;
+                width: 1400px;
+                margin: 0 auto;
+                margin-top: 140px;
+                @media only screen and (max-width: 1480px) {
+                    margin: 140px 40px 0 40px;
+                    width: calc(100% - 80px);
+                }
+                .b-text {
+                    font-family: 'Roboto-Bold';
+                    font-size: 44px;
+                    color: $white_color;
+                    margin-left: 40px;
+                    padding-right: 20px;
+                    border-right: 1px solid $white_color;
+                }
+                .balance {
+                    display: flex;
+                    flex-direction: row;
+                }
+                .tether {
+                    margin: 0 20px;
+                    width: 44px;
+                    height: 44px;
+                }
+                .value {
+                    font-family: 'Roboto-Bold';
+                    font-size: 44px;
+                    color: $white_color;
+                    .a-text {
+                        position: absolute;
+                        margin-top: -70px;
+                        font-size: 20px;
+                        color: $hover_color;
+                    }
+                }
+                .usdt {
+                    font-family: 'Roboto-Bold';
+                    font-size: 30px;
+                    color: $white_color;
+                    margin-left: 10px;
+                }
+                i {
+                    font-size: 40px;
+                    margin-left: 20px;
+                    color: orange;
+                }
+            }
+        }
+        .main-body {
+            background: $white_color;
+            flex-grow: 1;
+            .content {
+                width: 1400px;
+                margin: 0 auto;
+                margin-top: -40px;
+                display: flex;
+                flex-direction: column;
+                @media only screen and (max-width: 1480px) {
+                    margin: 0 40px;
+                    margin-top: -40px;
+                    width: calc(100% - 80px);
+                }
+                .c-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    .a-status {
+                        background: linear-gradient(-20deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgb(14, 40, 110) 100%);
+                        padding: 30px 0;
+                        border-radius: 10px;
+                        width: 23%;
+                        .text {
+                            color: $white_color;
+                            font-size: 20px;
+                            margin-left: 30px;
+                        }
+                        .detail {
+                            display: flex;
+                            flex-direction: row;
+                            margin-left: 30px;
+                            margin-top: 10px;
+                            img {
+                                width: 32px;
+                                height: 32px;
+                            }
+                            .d-text {
+                                color: $white_color;
+                                font-size: 28px;
+                                font-family: 'Roboto-Bold';
+                                margin-left: 10px;
+                            }
+                            .d-usdt {
+                                color: $white_color;
+                                font-family: 'Roboto-Bold';
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                    .link-div {
+                        background: linear-gradient(-20deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgb(14, 40, 110) 100%);
+                        padding: 30px 0;
+                        border-radius: 10px;
+                        width: 49%;
+                        .text {
+                            color: $white_color;
+                            font-size: 20px;
+                            margin-left: 30px;
+                        }
+                        .link-row {
+                            margin: 0 30px;
+                            margin-top: 10px;
+                            width: calc(100% - 60px);
+                            border: 1px solid $white_color;
+                            border-radius: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            .l-text {
+                                color: $white_color;
+                                margin: auto;
+                            }
+                            .icon {
+                                padding: 10px 30px;
+                                background: $white_color;
+                                border-radius: 30px;
+                            }
+                        }
+                    }
+                    .block {
+                        width: 23%;
+                        background: $white_color;
+                        border-radius: 10px;
+                        box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.3);
+                        .inner {
+                            padding: 20px;
+                            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.3);
+                            display: flex;
+                            flex-direction: column;
+                            border-radius: 10px;
+                            margin-bottom: 30px;
+                            .title {
+                                font-size: 18px;
+                                font-family: 'Roboto-Bold';
+                                text-align: center;
+                                color: rgb(37,138,194);
+                            }
+                            img {
+                                width: 100%;
+                                margin-top: 10px;
+                            }
+                            .status {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                margin-top: -15px;
+                                .g-small {
+                                    color: $green_color;
+                                    font-size: 12px;
+                                    width: 20%;
+                                    text-align: right;
+                                }
+                                .r-small {
+                                    color: $red_color;
+                                    font-size: 12px;
+                                    width: 20%;
+                                }
+                                .percent {
+                                    font-size: 24px;
+                                    font-family: 'Roboto-Bold';
+                                    margin: 0 20px;
+                                    margin-top: -10px;
+                                    color: $grey_color;
+                                    &.yellow {
+                                        color: yellow;
+                                    }
+                                    &.green {
+                                        color: $green_color;
+                                    }
+                                    &.red {
+                                        color: $red_color;
+                                    }
+                                }
+                            }
+                            .lastweek {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                i {
+                                    font-size: 12px;
+                                    color: $green_color;
+                                }
+                                .ltext {
+                                    margin-left: 5px;
+                                    font-size: 12px;
+                                    font-family: 'Roboto-Bold';
+                                }
+                            }
+                            .loreum {
+                                margin-top: 20px;
+                                border: 1px solid $border_color;
+                                border-radius: 10px;
+                                padding: 15px 10px 10px 10px;
+                                text-align: center;
+                                font-size: 12px;
+                            }
+                            .buttons {
+                                margin-left: calc(50% - 75px);
+                                width: 150px;
+                                background: $white_color;
+                                display: flex;
+                                flex-direction: row;
+                                margin-top: -30px;
+                                .circle {
+                                    margin: 0 3px;
+                                    background: $grey_color;
+                                    width: 24px;
+                                    height: 24px;
+                                    font-family: 'Roboto-Bold';
+                                    border-radius: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    font-size: 14px;
+                                    &.t1 {
+                                        color: $red_color;
+                                    }
+                                    &.t2 {
+                                        color: orange;
+                                    }
+                                    &.t3 {
+                                        color: yellow;
+                                    }
+                                    &.t4 {
+                                        color: $green_color;
+                                    }
+                                    &.t5 {
+                                        color: green;
+                                    }
+                                }
+                            }
+                        }
+                        .text-row {
+                            display: flex;
+                            flex-direction: row;
+                            margin: 0 20px;
+                            margin-bottom: 30px;
+                            justify-content: space-between;
+                            .text {
+                                font-size: 12px;
+                                &.bold {
+                                    font-family: 'Roboto-Bold';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     @include responsive(mobile) {
+        display: flex;
+        flex-direction: column;
+        .back {
+            height: 400px;
+            min-height: 400px;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgba(22,59,163,1) 100%);
+            margin-top: -80px;
+            z-index: -1;
+            .balance-detail {
+                margin-top: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .b-text {
+                    font-family: 'Roboto-Bold';
+                    font-size: 34px;
+                    color: $white_color;
+                    text-align: center;
+                }
+                .balance {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin: 20px 0;
+                    img {
+                        margin: auto 0;
+                    }
+                }
+                .tether {
+                    margin: 0 20px;
+                    width: 34px;
+                    height: 34px;
+                }
+                .value {
+                    font-family: 'Roboto-Bold';
+                    font-size: 30px;
+                    color: $white_color;
+                    .a-text {
+                        display: none;                        
+                    }
+                }
+                .usdt {
+                    font-family: 'Roboto-Bold';
+                    font-size: 20px;
+                    color: $white_color;
+                    margin-left: 10px;
+                }
+                i {
+                    font-size: 30px;
+                    text-align: center;
+                    color: orange;
+                }
+            }
+        }
+        .main-body {
+            background: $white_color;
+            flex-grow: 1;
+            .content {
+                margin-top: -120px;
+                display: flex;
+                flex-direction: column;
+                .m-row {
+                    flex-direction: row !important;
+                    flex-wrap: wrap;
+                }
+                .c-row {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    .a-status {
+                        background: linear-gradient(-20deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgb(14, 40, 110) 100%);
+                        padding: 20px 0;
+                        border-radius: 10px;
+                        width: calc(50% - 20px);
+                        margin: 0 10px;
+                        .text {
+                            color: $white_color;
+                            font-size: 20px;
+                            margin-left: 10px;
+                        }
+                        .detail {
+                            display: flex;
+                            flex-direction: row;
+                            margin-left: 10px;
+                            margin-top: 10px;
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                            .d-text {
+                                color: $white_color;
+                                font-size: 20px;
+                                font-family: 'Roboto-Bold';
+                                margin-left: 10px;
+                            }
+                            .d-usdt {
+                                font-size: 12px;
+                                color: $white_color;
+                                font-family: 'Roboto-Bold';
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                    .link-div {
+                        background: linear-gradient(-20deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgb(14, 40, 110) 100%);
+                        padding: 30px 0;
+                        border-radius: 10px;
+                        margin: 10px;
+                        width: calc(100% - 20px);
+                        .text {
+                            color: $white_color;
+                            font-size: 20px;
+                            margin-left: 30px;
+                        }
+                        .link-row {
+                            margin: 0 30px;
+                            margin-top: 10px;
+                            width: calc(100% - 60px);
+                            border: 1px solid $white_color;
+                            border-radius: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            .l-text {
+                                color: $white_color;
+                                margin: auto;
+                            }
+                            .icon {
+                                padding: 10px 30px;
+                                background: $white_color;
+                                border-radius: 30px;
+                            }
+                        }
+                    }
+                    .block {
+                        width: calc(100% - 40px);
+                        margin: 0 20px;
+                        margin-bottom: 30px;
+                        background: $white_color;
+                        border-radius: 10px;
+                        box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.3);
+                        .inner {
+                            padding: 20px;
+                            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.3);
+                            display: flex;
+                            flex-direction: column;
+                            border-radius: 10px;
+                            margin-bottom: 30px;
+                            .title {
+                                font-size: 18px;
+                                font-family: 'Roboto-Bold';
+                                text-align: center;
+                                color: rgb(37,138,194);
+                            }
+                            img {
+                                width: 100%;
+                                margin-top: 10px;
+                            }
+                            .status {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                margin-top: -15px;
+                                .g-small {
+                                    color: $green_color;
+                                    font-size: 12px;
+                                    width: 20%;
+                                    text-align: right;
+                                }
+                                .r-small {
+                                    color: $red_color;
+                                    font-size: 12px;
+                                    width: 20%;
+                                }
+                                .percent {
+                                    font-size: 24px;
+                                    font-family: 'Roboto-Bold';
+                                    margin: 0 20px;
+                                    margin-top: -10px;
+                                    color: $grey_color;
+                                    &.yellow {
+                                        color: yellow;
+                                    }
+                                    &.green {
+                                        color: $green_color;
+                                    }
+                                    &.red {
+                                        color: $red_color;
+                                    }
+                                }
+                            }
+                            .lastweek {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                i {
+                                    font-size: 12px;
+                                    color: $green_color;
+                                }
+                                .ltext {
+                                    margin-left: 5px;
+                                    font-size: 12px;
+                                    font-family: 'Roboto-Bold';
+                                }
+                            }
+                            .loreum {
+                                margin-top: 20px;
+                                border: 1px solid $border_color;
+                                border-radius: 10px;
+                                padding: 15px 10px 10px 10px;
+                                text-align: center;
+                                font-size: 12px;
+                            }
+                            .buttons {
+                                margin-left: calc(50% - 75px);
+                                width: 150px;
+                                background: $white_color;
+                                display: flex;
+                                flex-direction: row;
+                                margin-top: -30px;
+                                .circle {
+                                    margin: 0 3px;
+                                    background: $grey_color;
+                                    width: 24px;
+                                    height: 24px;
+                                    font-family: 'Roboto-Bold';
+                                    border-radius: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    font-size: 14px;
+                                    &.t1 {
+                                        color: $red_color;
+                                    }
+                                    &.t2 {
+                                        color: orange;
+                                    }
+                                    &.t3 {
+                                        color: yellow;
+                                    }
+                                    &.t4 {
+                                        color: $green_color;
+                                    }
+                                    &.t5 {
+                                        color: green;
+                                    }
+                                }
+                            }
+                        }
+                        .text-row {
+                            display: flex;
+                            flex-direction: row;
+                            margin: 0 20px;
+                            margin-bottom: 30px;
+                            justify-content: space-between;
+                            .text {
+                                font-size: 12px;
+                                &.bold {
+                                    font-family: 'Roboto-Bold';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

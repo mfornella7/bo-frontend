@@ -71,7 +71,7 @@ class Header extends Component {
                     <div className="bal-text">USDT 145.10</div>
                 </div>
                 <div className="item-row">
-                    <i class="far fa-user-circle"></i>
+                    <i class="far fa-chart-bar"></i>
                     <div className="item-text">Resumo da Conta</div>
                 </div>
                 <div className="item-row">

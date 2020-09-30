@@ -353,6 +353,9 @@
         .header__left {
             display: flex;
             flex-direction: row;
+            .nav-menu {
+                display: none;
+            }
             .nav__icon {
                 display: none;
             }
