@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom'
 import './Dashboard.scss';
 
 import Img_Tether from '../../assets/img/extra/tether.png';
@@ -9,6 +12,12 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             isShow: false,
+            tabs:[
+                "Dashboard",
+                "Statistics",
+                "Financial",
+            ],
+            tabId: 0,
         }
         this.wrapperRef = React.createRef();
         this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -30,9 +39,40 @@ class Dashboard extends Component {
         }
     }
     
+    renderPanel() {
+        return (
+            <div className="panel-mobile">
+                <div className="tab" 
+                onClick={() => {
+                    this.setState({isShow: true})
+                }}>{this.state.tabs[this.state.tabId]}</div>
+                <i className="fa fa-caret-down" aria-hidden="true"></i>
+                {this.state.isShow?
+                    <div className="dropdown" ref={this.wrapperRef}>
+                        {this.state.tabs.map((tab, index) => {
+                            return (
+                                <div className="text" key={index} onClick={() => {
+                                    if (index === 2) {
+                                        this.props.history.push('/financial')
+                                    }
+                                    this.setState({
+                                        tabId: index,
+                                        isShow: false,
+                                    })
+                                }}>
+                                    {tab}
+                                </div>
+                            )
+                        })}
+                    </div>:(null)}
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className="Dashboard">
+                {this.renderPanel()}
                 <div className="back">
 
                     <div className="balance-detail">
@@ -71,7 +111,7 @@ class Dashboard extends Component {
                                 <div className="link-row">
                                     <div className="l-text">https://www.site.com</div>
                                     <div className="icon">
-                                        <i class="fas fa-copy"></i>
+                                        <i className="fas fa-copy"></i>
                                     </div>
                                 </div>
                             </div>
@@ -249,4 +289,10 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+});
+
+const mapDispatchToProps = {
+    
+};
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(Dashboard);

@@ -6,6 +6,9 @@
         display: flex;
         flex-direction: column;
         height: calc(100vh - 80px);
+        .panel-mobile {
+            display: none;
+        }
         .back {
             height: 300px;
             min-height: 300px;
@@ -279,15 +282,48 @@
     @include responsive(mobile) {
         display: flex;
         flex-direction: column;
+        .panel-mobile {
+            margin: 15px;
+            width: calc(100% - 60px);
+            margin-top: 20px;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            cursor: pointer;
+            border: 1px solid $hover_color;
+            border-radius: 20px;
+            z-index: 1;
+            position: absolute;
+            .tab {
+                margin: 0 auto;
+                color: $white_color;
+            }
+            i {
+                color: $white_color;
+            }
+            .dropdown {
+                position: absolute;
+                background: $white_color;
+                margin-top: 30px;
+                margin-left: -10px;
+                width: calc(100%  - 30px);
+                border: 1px solid $hover_color;
+                .text {
+                    background: white;
+                    padding: 10px;
+                    border-bottom: 1px solid $hover_color;
+                }
+            }
+        }
         .back {
-            height: 400px;
-            min-height: 400px;
+            height: 450px;
+            min-height: 450px;
             width: 100%;
             background: linear-gradient(180deg, rgba(37,138,194,1) 0%, rgba(14,87,156,1) 48%, rgba(22,59,163,1) 100%);
             margin-top: -80px;
             z-index: -1;
             .balance-detail {
-                margin-top: 100px;
+                margin-top: 150px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;

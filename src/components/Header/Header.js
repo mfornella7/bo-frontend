@@ -36,6 +36,9 @@ class Header extends Component {
     goDashboard() {
         this.props.history.push("/dashboard");
     }
+    goFinancial() {
+        this.props.history.push("/financial");
+    }
 
     handleClickOutside(event) {
         if (this.wrapperRef && this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
@@ -111,9 +114,13 @@ class Header extends Component {
             return (
                 <div className="Header no-border">
                     <div className="header__left">
-                        <div className={location.pathname === '/dashboard'?"nav-menu selected":"nav-menu"}>Dashboard</div>
+                        <div className={location.pathname === '/dashboard'?"nav-menu selected":"nav-menu"}
+                            onClick={() => this.goDashboard()}
+                        >Dashboard</div>
                         <div className={location.pathname === '/statistics'?"nav-menu selected":"nav-menu"}>Statistics</div>
-                        <div className={location.pathname === '/financial'?"nav-menu selected":"nav-menu"}>Financial</div>
+                        <div className={location.pathname === '/financial'?"nav-menu selected":"nav-menu"}
+                            onClick={() => this.goFinancial()}
+                        >Financial</div>
                     </div>
                     <div className="header__right">
                         <div className="make__center">
